@@ -118,4 +118,4 @@ print(f"Cleaned data saved to {cleaned_file_path}.")
 ## **Conclusion**
 This project involved several steps in cleaning and analyzing solar radiation and meteorological data. I started by loading and exploring the dataset, then proceeded to clean the data by handling missing values and anomalies. Through visualization and statistical analysis, I explored trends in solar irradiance, temperature, and wind conditions over time. I also visualized the relationships betIen variables like solar radiation, temperature, and wind, providing valuable insights into the data's behavior.
 
-This analysis can be extended further to build predictive models, understand seasonal patterns, or assess the impact of Iather conditions on solar energy production.
+This analysis can be extended further to build predictive models, understand seasonal patterns, or assess the impact of weather conditions on solar energy production.
