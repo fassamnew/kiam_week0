@@ -31,10 +31,10 @@ Removed duplicate rows.
 data.dropna(axis=1, how='all', inplace=True)
 
 # Fill missing values in numerical columns with the median
-numerical_columns = ['GHI (W/m²)', 'DNI (W/m²)', 'DHI (W/m²)', 'ModA (W/m²)', 'ModB (W/m²)', 
-                     'Tamb (°C)', 'RH (%)', 'WS (m/s)', 'WSgust (m/s)', 'WSstdev (m/s)', 
-                     'WD (°N (to east))', 'BP (hPa)', 'Precipitation (mm/min)', 
-                     'TModA (°C)', 'TModB (°C)']
+numerical_columns = ['GHI', 'DNI', 'DHI', 'ModA', 'ModB', 
+                     'Tamb', 'RH', 'WS', 'WSgust', 'WSstdev', 
+                     'WD', 'BP', 'Precipitation', 
+                     'TModA', 'TModB']
 data[numerical_columns] = data[numerical_columns].fillna(data[numerical_columns].median())
 ```
 ## 3. **Time Series Analysis and Visualization**
@@ -51,7 +51,7 @@ import matplotlib.pyplot as plt
 
 # Example: Plotting GHI over time
 plt.figure(figsize=(10, 6))
-plt.plot(data['Timestamp'], data['GHI (W/m²)'], label='GHI')
+plt.plot(data['Timestamp'], data['GHI'], label='GHI')
 plt.xlabel('Timestamp')
 plt.ylabel('Global Horizontal Irradiance (W/m²)')
 plt.title('Global Horizontal Irradiance Over Time')
@@ -68,7 +68,7 @@ I also explored how wind conditions (e.g., wind speed, gust speed) relate to sol
 import seaborn as sns
 
 # Correlation matrix for solar radiation and temperature
-correlation_data = data[['GHI (W/m²)', 'DNI (W/m²)', 'DHI (W/m²)', 'TModA (°C)', 'TModB (°C)']]
+correlation_data = data[['GHI', 'DNI', 'DHI', 'TModA', 'TModB']]
 sns.heatmap(correlation_data.corr(), annot=True, cmap="coolwarm", linewidths=0.5)
 plt.title('Correlation Matrix of Solar Radiation and Temperature')
 plt.show()
@@ -82,7 +82,7 @@ from windrose import WindroseAxes
 
 # Plotting wind direction and speed
 ax = WindroseAxes.from_ax()
-ax.bar(data['WD (°N (to east))'], data['WS (m/s)'], bins=12, normed=True, opening=0.8, edgecolor='white')
+ax.bar(data['WD'], data['WS'], bins=12, normed=True, opening=0.8, edgecolor='white')
 ax.set_title('Wind Rose for Wind Speed and Direction')
 plt.show()
 ```
@@ -93,8 +93,8 @@ Anomaly Handling Code:
 ```python
 def handle_anomalies(df):
     # Replace negative values in specific columns with NaN
-    columns_with_anomalies = ['GHI (W/m²)', 'DNI (W/m²)', 'DHI (W/m²)', 'ModA (W/m²)', 'ModB (W/m²)', 
-                              'Tamb (°C)', 'TModA (°C)', 'TModB (°C)']
+    columns_with_anomalies = ['GHI', 'DNI', 'DHI', 'ModA', 'ModB', 
+                              'Tamb', 'TModA', 'TModB']
     for col in columns_with_anomalies:
         df.loc[df[col] < 0, col] = pd.NA  # Replace negative values with NaN
     
