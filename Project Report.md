@@ -1,14 +1,14 @@
 # Data Analysis and Cleaning for Solar Radiation and Meteorological Data
 
-In this project, I explored and cleaned a dataset containing solar radiation and meteorological measurements over time. The goal was to analyze patterns in solar irradiance, temperature, and wind conditions while ensuring that the dataset was clean, complete, and free of anomalies for further analysis. Below is a summary of the tasks we accomplished, from initial data loading to advanced analysis.
+In this project, I explored and cleaned a dataset containing solar radiation and meteorological measurements over time. The goal was to analyze patterns in solar irradiance, temperature, and wind conditions while ensuring that the dataset was clean, complete, and free of anomalies for further analysis. Below is a summary of the tasks I accomplished, from initial data loading to advanced analysis.
 
 ## 1. **Data Loading and Exploration**
 
-We started by loading the dataset containing various solar and meteorological measurements. The dataset includes columns such as Global Horizontal Irradiance (GHI), Direct Normal Irradiance (DNI), Diffuse Horizontal Irradiance (DHI), ambient temperature (Tamb), wind speed, and more.
+I started by loading the dataset containing various solar and meteorological measurements. The dataset includes columns such as Global Horizontal Irradiance (GHI), Direct Normal Irradiance (DNI), Diffuse Horizontal Irradiance (DHI), ambient temperature (Tamb), wind speed, and more.
 
 ### Steps:
-- We loaded the dataset using `pandas.read_csv()`, specifying the correct file path for each dataset.
-- We performed initial checks to ensure that the data was loaded correctly, and printed out the first few rows of the dataset.
+- I loaded the dataset using `pandas.read_csv()`, specifying the correct file path for each dataset.
+- I performed initial checks to ensure that the data was loaded correctly, and printed out the first few rows of the dataset.
 
 ```python
 import pandas as pd
@@ -20,7 +20,7 @@ file_path = "../../data/benin-malanville.csv"  # Change this as needed
 data = pd.read_csv(file_path, parse_dates=["Timestamp"])
 ```
 ## 2. **Data Quality Check**
-After loading the data, we conducted an initial data quality check. This involved identifying missing values, checking for duplicate rows, and inspecting the data types of each column. We also identified any columns that had entirely missing values, such as the Comments column, and flagged any issues that might require further cleaning.
+After loading the data, I conducted an initial data quality check. This involved identifying missing values, checking for duplicate rows, and inspecting the data types of each column. I also identified any columns that had entirely missing values, such as the Comments column, and flagged any issues that might require further cleaning.
 
 Key Actions:
 Removed columns with entirely missing values (e.g., Comments).
@@ -38,12 +38,12 @@ numerical_columns = ['GHI (W/m²)', 'DNI (W/m²)', 'DHI (W/m²)', 'ModA (W/m²)'
 data[numerical_columns] = data[numerical_columns].fillna(data[numerical_columns].median())
 ```
 ## 3. **Time Series Analysis and Visualization**
-We explored the relationships between solar irradiance, temperature, and other meteorological variables over time. This helped us observe trends, seasonal patterns, and anomalies.
+I explored the relationships betIen solar irradiance, temperature, and other meteorological variables over time. This helped us observe trends, seasonal patterns, and anomalies.
 
 Key Visualizations:
-Line charts were used to plot the changes in GHI, DNI, DHI, and Tamb over time.
-We aggregated the data by month to identify any seasonal patterns.
-We plotted the trends throughout the day for key variables.
+Line charts Ire used to plot the changes in GHI, DNI, DHI, and Tamb over time.
+I aggregated the data by month to identify any seasonal patterns.
+I plotted the trends throughout the day for key variables.
 
 ```python
 
@@ -59,11 +59,11 @@ plt.legend()
 plt.show()
 ```
 ## 4. **Correlation Analysis**
-To better understand the relationships between different variables, we performed correlation analysis. We used correlation matrices and pair plots to visualize how solar irradiance components (GHI, DNI, DHI) correlated with temperature measurements (TModA, TModB) and other meteorological conditions.
+To better understand the relationships betIen different variables, I performed correlation analysis. I used correlation matrices and pair plots to visualize how solar irradiance components (GHI, DNI, DHI) correlated with temperature measurements (TModA, TModB) and other meteorological conditions.
 
 Insights:
-We discovered strong correlations between GHI, DNI, and DHI, which are expected given their similar physical nature.
-We also explored how wind conditions (e.g., wind speed, gust speed) relate to solar irradiance.
+I discovered strong correlations betIen GHI, DNI, and DHI, which are expected given their similar physical nature.
+I also explored how wind conditions (e.g., wind speed, gust speed) relate to solar irradiance.
 ```python
 import seaborn as sns
 
@@ -74,7 +74,7 @@ plt.title('Correlation Matrix of Solar Radiation and Temperature')
 plt.show()
 ```
 ## 5. **Wind Analysis**
-We also examined the wind data, which included variables like wind speed (WS), gust speed (WSgust), and wind direction (WD). To visualize wind trends, we used wind rose diagrams to show the distribution of wind speed and direction, as well as how variable the wind direction tends to be.
+I also examined the wind data, which included variables like wind speed (WS), gust speed (WSgust), and wind direction (WD). To visualize wind trends, I used wind rose diagrams to show the distribution of wind speed and direction, as well as how variable the wind direction tends to be.
 
 ```python
 # Wind rose visualization
@@ -87,7 +87,7 @@ ax.set_title('Wind Rose for Wind Speed and Direction')
 plt.show()
 ```
 ## 6. **Handling Missing Data and Anomalies**
-During our analysis, we observed a few issues with the data, such as negative values in the GHI, DNI, and Tamb columns, which are physically impossible. We addressed these anomalies by replacing the negative values with NaN and then filled those missing values with the median for each column.
+During my analysis, I observed a potential for few issues with the data, such as negative values in the GHI, DNI, and Tamb columns, which are physically impossible. I addressed these anomalies by replacing the negative values with NaN and then filled those missing values with the median for each column.
 
 Anomaly Handling Code:
 ```python
@@ -105,8 +105,8 @@ def handle_anomalies(df):
 
 data = handle_anomalies(data)
 ```
-## 7. **Saving Cleaned Data*
-Finally, after performing all necessary cleaning and handling anomalies, we saved the cleaned data into a new CSV file, which is now ready for further analysis or machine learning applications.
+## 7. **Saving Cleaned Data**
+Finally, after performing all necessary cleaning and handling anomalies, I saved the cleaned data into a new CSV file, which is now ready for further analysis or machine learning applications.
 
 ```python
 # Save the cleaned data for further analysis
@@ -115,6 +115,6 @@ data.to_csv(cleaned_file_path, index=False)
 print(f"Cleaned data saved to {cleaned_file_path}.")
 ```
 ## **Conclusion**
-This project involved several steps in cleaning and analyzing solar radiation and meteorological data. We started by loading and exploring the dataset, then proceeded to clean the data by handling missing values and anomalies. Through visualization and statistical analysis, we explored trends in solar irradiance, temperature, and wind conditions over time. We also visualized the relationships between variables like solar radiation, temperature, and wind, providing valuable insights into the data's behavior.
+This project involved several steps in cleaning and analyzing solar radiation and meteorological data. I started by loading and exploring the dataset, then proceeded to clean the data by handling missing values and anomalies. Through visualization and statistical analysis, I explored trends in solar irradiance, temperature, and wind conditions over time. I also visualized the relationships betIen variables like solar radiation, temperature, and wind, providing valuable insights into the data's behavior.
 
-This analysis can be extended further to build predictive models, understand seasonal patterns, or assess the impact of weather conditions on solar energy production.
+This analysis can be extended further to build predictive models, understand seasonal patterns, or assess the impact of Iather conditions on solar energy production.
