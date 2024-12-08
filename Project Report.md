@@ -1,4 +1,5 @@
 # Data Analysis and Cleaning for Solar Radiation and Meteorological Data
+Prepared by: Fitsum Assamnew
 
 In this project, I explored and cleaned a dataset containing solar radiation and meteorological measurements over time. The goal was to analyze patterns in solar irradiance, temperature, and wind conditions while ensuring that the dataset was clean, complete, and free of anomalies for further analysis. Below is a summary of the tasks I accomplished, from initial data loading to advanced analysis.
 
